@@ -10,6 +10,7 @@ const AddTodoForm = () => {
         e.preventDefault();
         if (!input) {
             alert('Set a valid todo');
+            setInput('');
         } else {
             dispatch(addTodo({
                 id: Math.random().toString(36).substr(2, 9),
