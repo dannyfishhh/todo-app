@@ -15,15 +15,28 @@ const todoSlice = createSlice({
         addTodo: (state, action) => {
             state.todos.push(action.payload);
         },
-        clearTodos: (state, action) => {
+        clearTodos: (state) => {
             state.todos = [];
         },
         deleteTodo: (state, action) => {
             const {id} = action.payload
             state.todos = state.todos.filter((todo) => todo.id !== id);
+        },
+        toggleInputForm: (state, action) => {
+            const {id, name} = action.payload
+            state.toggleForm = !state.toggleForm;
+            state.todoUpdate = { id, name }
+        },
+        updateTodo: (state, action) => {
+            const { id, name } = action.payload;
+            const todo = state.todos.find((todo) => todo.id === id);
+            if (todo) {
+                todo.name = name;
+            }
+            state.toggleForm = !state.toggleForm;
         }
     }
 })
 
 export default todoSlice.reducer
-export const {addTodo, clearTodos, deleteTodo} = todoSlice.actions;
+export const {addTodo, clearTodos, deleteTodo, toggleInputForm, updateTodo} = todoSlice.actions;
