@@ -1,6 +1,7 @@
 import {addTodo} from '../../store/features/todo/todoSlice';
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
+import addLogo from '../../resources/add_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg';
 
 const AddTodoForm = () => {
 
@@ -24,7 +25,7 @@ const AddTodoForm = () => {
         <form onSubmit={handleSubmit}>
             <input value={input} onChange={(e) => setInput(e.target.value)} type='text' placeholder='New Todo'></input>
             <button type='submit'>
-                Add
+                <img src={addLogo} alt='add logo'/>
             </button>
         </form>
     );

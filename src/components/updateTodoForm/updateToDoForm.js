@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useState} from 'react';
 import {updateTodo} from '../../store/features/todo/todoSlice';
+import editIcon from '../../resources/change_circle_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg';
 
 const UpdateToDoForm = () => {
     const todoForUpdate = useSelector(state => state.todos.todoUpdate);
@@ -25,7 +26,7 @@ const UpdateToDoForm = () => {
         <form onSubmit={handleSubmit}>
             <input value={updated} onChange={(e) => setUpdated(e.target.value)} type='text' placeholder='Edit Todo'></input>
             <button type='submit'>
-                Update
+                <img src={editIcon} alt='edit icon'/>
             </button>
         </form>
     );

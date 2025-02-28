@@ -10,13 +10,13 @@ const Container = () => {
     const dispatch = useDispatch();
 
     return (
-        <div>
+        <div className='container'>
             <h1>My Todo List</h1>
             {toggleForm ? <AddTodoForm /> : <UpdateTodoForm />}
-            <ul>
+            <ul className='todo-list'>
                 {myTodos.map((todo) => {return <TodoContainer id={todo.id} name={todo.name}/>})}
             </ul>
-            <button onClick={() => dispatch(clearTodos())}>Clear</button>
+            <button className='clear-button' onClick={() => dispatch(clearTodos())}>Clear</button>
         </div>
     )
 }
